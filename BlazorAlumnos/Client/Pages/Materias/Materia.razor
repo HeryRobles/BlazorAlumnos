@@ -8,3 +8,20 @@
 
 <h3>Materia</h3>
 
+@code {
+ 
+    protected MateriaDTO materia = new MateriaDTO();
+    [Parameter] public int id { get; set; } = 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (id > 0)
+        {
+            var response = await httpClient.GetFromJsonAsync<MateriaDTO>($"api/materias/{id}");
+            if (response != null)
+            {
+                materia = response;
+            }
+        }
+    }
+}

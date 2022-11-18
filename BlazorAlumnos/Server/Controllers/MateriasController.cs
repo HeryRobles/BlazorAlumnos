@@ -86,7 +86,7 @@ namespace BlazorAlumnos.Server.Controllers
             return Ok();
         }
 
-        [HttpDelete("{id: int}")]
+        [HttpDelete("{id:int}")]
         public async Task<ActionResult> Delete(int id)
         {
             var materiaDb = await context.Materias.FirstOrDefaultAsync(x => x.Id == id);

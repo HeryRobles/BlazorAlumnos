@@ -19,7 +19,7 @@ namespace BlazorAlumnos.Server.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<AlumnoDTO>>> Get()
+        public async Task<ActionResult<List<AlumnoDTO>>> GetAlumnos()
         {
             var alumnos = await context.Alumnos.ToListAsync();
 
@@ -27,13 +27,13 @@ namespace BlazorAlumnos.Server.Controllers
 
             foreach(var alumno in alumnos)
             {
-                var alumnoDTO = new AlumnoDTO();    
-                alumnoDTO.Id = alumno.Id;
-                alumnoDTO.Nombre = alumno.Nombre;
-                alumnoDTO.Foto = "Foto del Alumno";
-                alumnoDTO.Matricula = alumno.Matricula;
+                var alumnoDto = new AlumnoDTO();    
+                alumnoDto.Id = alumno.Id;
+                alumnoDto.Nombre = alumno.Nombre;
+                alumnoDto.Foto = "Foto del Alumno";
+                alumnoDto.Matricula = alumno.Matricula;
 
-                alumnosDto.Add(alumnoDTO);  
+                alumnosDto.Add(alumnoDto);  
             }
 
             return alumnosDto;
@@ -86,7 +86,7 @@ namespace BlazorAlumnos.Server.Controllers
             return Ok();
         }
 
-        [HttpDelete("{id: int}")]
+        [HttpDelete("{id:int}")]
         public async Task<ActionResult> Delete(int id)
         {
             var alumnoDb = await context.Alumnos.FirstOrDefaultAsync(x => x.Id == id);
