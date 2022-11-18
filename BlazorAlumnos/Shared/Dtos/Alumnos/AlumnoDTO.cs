@@ -11,7 +11,7 @@ namespace BlazorAlumnos.Shared.Dtos.Alumnos
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="El campo {0} es requerido")]
         public string Nombre { get; set; }
 
         [Required]

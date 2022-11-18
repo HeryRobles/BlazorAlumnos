@@ -69,5 +69,37 @@ namespace BlazorAlumnos.Server.Controllers
             return Ok();
         }
 
+        [HttpPut]
+        public async Task<ActionResult> Edit([FromBody] AlumnoDTO alumnoDto)
+        {
+            var alumnoDb = await context.Alumnos.FirstOrDefaultAsync(x => x.Id == alumnoDto.Id);
+
+            if (alumnoDb == null)
+            {
+                return NotFound();
+            }
+
+            alumnoDb.Nombre = alumnoDb.Nombre;
+
+            context.Alumnos.Update(alumnoDb);
+            await context.SaveChangesAsync();
+            return Ok();
+        }
+
+        [HttpDelete("{id: int}")]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var alumnoDb = await context.Alumnos.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (alumnoDb == null)
+            {
+                return NotFound();
+            }
+
+            context.Alumnos.Remove(alumnoDb);
+            await context.SaveChangesAsync();
+            return Ok();
+        }
+
     }
 }
