@@ -3,7 +3,7 @@ using BlazorAlumnos.Server.Model.Entities;
 using BlazorAlumnos.Shared.Dtos.Materias;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+
 
 namespace BlazorAlumnos.Server.Controllers
 {
