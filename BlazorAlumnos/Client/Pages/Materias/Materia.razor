@@ -14,7 +14,15 @@
     <div class="col-lg-12">
         <div class="mb-3">
             <label class="form-label">Nombre</label>
-            <inputText id="Nombre" class="form-control" @bind="@materia.Nombre" />
+            <inputNumber id="Id" class="form-control" @bind="@materia.Id" />
+            <ValidationMessage For="@(() => materia.Id)" />
+        </div>
+    </div>
+
+    <div class="col-lg-12">
+        <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <inputNumber id="Nombre" class="form-control" @bind="@materia.Nombre" />
             <ValidationMessage For="@(() => materia.Nombre)" />
         </div>
     </div>
